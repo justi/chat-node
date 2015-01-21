@@ -15,8 +15,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(passport.initialize());
+app.use(passport.session());
 
-require('./config/routes')(app);
+require('./config/passport')(passport, FacebookStrategy);
+require('./config/routes')(app, passport);
 
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
