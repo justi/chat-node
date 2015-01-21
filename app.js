@@ -1,10 +1,13 @@
-var express   = require('express'),
-path          = require('path'),
-favicon       = require('serve-favicon'),
-logger        = require('morgan'),
-cookieParser  = require('cookie-parser'),
-bodyParser    = require('body-parser'),
-app           = express();
+var express       = require('express'),
+path              = require('path'),
+favicon           = require('serve-favicon'),
+logger            = require('morgan'),
+cookieParser      = require('cookie-parser'),
+bodyParser        = require('body-parser'),
+passport          = require('passport'),
+FacebookStrategy  = require('passport-facebook').Strategy,
+config            = require('config'),
+app               = express();
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -13,8 +16,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(passport.initialize());
+app.use(passport.session());
 
-require('./config/routes')(app);
+require('./config/passport')(passport, FacebookStrategy, config);
+require('./config/routes')(app, passport);
 
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
