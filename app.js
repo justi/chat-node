@@ -1,10 +1,12 @@
-var express   = require('express'),
-path          = require('path'),
-favicon       = require('serve-favicon'),
-logger        = require('morgan'),
-cookieParser  = require('cookie-parser'),
-bodyParser    = require('body-parser'),
-app           = express();
+var express       = require('express'),
+path              = require('path'),
+favicon           = require('serve-favicon'),
+logger            = require('morgan'),
+cookieParser      = require('cookie-parser'),
+bodyParser        = require('body-parser'),
+passport          = require('passport'),
+FacebookStrategy  = require('passport-facebook').Strategy;
+app               = express();
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
