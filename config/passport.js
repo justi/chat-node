@@ -1,8 +1,8 @@
-module.exports = function(passport, FacebookStrategy) {
+module.exports = function(passport, FacebookStrategy, config) {
 
   passport.use(new FacebookStrategy({
-    clientID: "315422298654725",
-    clientSecret: "5250c7c6221989703a596e2fb93a78f0",
+    clientID: config.get('facebook.clientID'),
+    clientSecret: config.get('facebook.clientSecret'),
     callbackURL: "http://localhost:3000/auth/facebook/callback",
   },
 
