@@ -7,6 +7,8 @@ bodyParser        = require('body-parser'),
 passport          = require('passport'),
 FacebookStrategy  = require('passport-facebook').Strategy,
 config            = require('config'),
+session           = require('express-session'),
+RedisStore        = require('connect-redis')(session),
 app               = express();
 
 app.set('views', path.join(__dirname, 'views'));
@@ -16,6 +18,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+    store: new RedisStore(),
+    secret: 'node chat application',
+    resave: true,
+    saveUninitialized: true
+}));
+
 app.use(passport.initialize());
 app.use(passport.session());
 

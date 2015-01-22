@@ -7,7 +7,7 @@ module.exports = function(passport, FacebookStrategy, config) {
   },
 
   function(accessToken, refreshToken, profile, done) {
-     process.nextTick(function () {
+    process.nextTick(function () {
       return done(null, profile);
     });
   }
