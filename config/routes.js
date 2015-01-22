@@ -1,12 +1,6 @@
 var homeController      = require('../controllers/home_controller');
 
 module.exports = function(app, passport) {
-  app.use('/chat', function(req, res, next){
-    if(!req.user){ return res.redirect('/'); }
-
-    next();
-  }); 
-
   app.get('/', homeController.index);
   app.get('/chat', homeController.chat);
 

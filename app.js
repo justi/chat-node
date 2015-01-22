@@ -28,6 +28,9 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+// Setup all middlware validations
+require('./config/middleware')(app);
+
 require('./config/passport')(passport, FacebookStrategy, config);
 require('./config/routes')(app, passport);
 
