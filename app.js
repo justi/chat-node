@@ -8,7 +8,6 @@ passport          = require('passport'),
 FacebookStrategy  = require('passport-facebook').Strategy,
 config            = require('config'),
 session           = require('express-session'),
-redis             = require('redis').createClient(),
 RedisStore        = require('connect-redis')(session),
 app               = express();
 
