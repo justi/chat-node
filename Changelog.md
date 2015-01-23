@@ -1,5 +1,12 @@
 ## Chat Node changelog
 
+### 0.2.0 / 01-23-2014
+
+#### Features
+  - Created chat view
+  - Added middleware file
+  - Ensure authentication for chat view
+
 ### 0.1.1 / 01-22-2014
 
 #### Bug fixes
