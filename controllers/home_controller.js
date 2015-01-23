@@ -1,7 +1,11 @@
 module.exports = {
 
   index: function(req, res){
-    res.render('home/index');
+    return res.render('home/index');
+  },
+
+  chat: function(req, res){
+    return res.render('home/chat');
   }
 
 };
