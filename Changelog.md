@@ -1,5 +1,10 @@
 ## Chat Node changelog
 
+### 0.3.0 / 01-24-2014
+
+#### Features
+  - Added MongoDB
+
 ### 0.2.0 / 01-23-2014
 
 #### Features
