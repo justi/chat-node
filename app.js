@@ -9,6 +9,7 @@ FacebookStrategy  = require('passport-facebook').Strategy,
 config            = require('config'),
 session           = require('express-session'),
 RedisStore        = require('connect-redis')(session),
+mongoose          = require('mongoose'),
 app               = express();
 
 app.set('views', path.join(__dirname, 'views'));
@@ -33,6 +34,7 @@ require('./config/middleware')(app);
 
 require('./config/passport')(passport, FacebookStrategy, config);
 require('./config/routes')(app, passport);
+require('./config/database')(mongoose, config);
 
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
