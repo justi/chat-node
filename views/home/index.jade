@@ -1,5 +1,16 @@
 extends ../layout
 
 block content
+  .bg-slider-wrapper
+      .flexslider.bg-slider
+          ul.slides
+            li.slide.slide-1(style='width: 100%; float: left; margin-right: -100%; position: relative; opacity: 0; display: block; z-index: 1;')
 
-  h1 Node Chat
+  section.promo.section.section-on-bg
+      .container.text-center
+          h2.title Best Chat application for developers
+          p.intro
+            | Work on things that matter, be transparent and solve problems across tools, teams & time zones
+          p
+            a.btn.btn-cta.btn-cta-primary(href='/auth/facebook') Get Started Now
+
