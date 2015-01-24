@@ -2,5 +2,12 @@ doctype html
 html
   head
     title= title
-  body
+    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/main.css')
+    link(rel='stylesheet', href='/stylesheets/chat.css')
+  body.home-page(data-twttr-rendered='true')
     block content
+
+  script(type='text/javascript', src='/javascripts/jquery-1.11.1.min.js')
+  script(type='text/javascript', src='/javascripts/jquery.flexslider-min.js')
+  script(type='text/javascript', src='/javascripts/bootstrap.min.js')
