@@ -6,28 +6,12 @@ block content
       .row
         .col-md-3
           ul#contact-list.list-group
-              li.list-group-item
-                  .col-xs-12.col-sm-3
-                    img.img-responsive.img-circle(src='http://api.randomuser.me/portraits/men/49.jpg', alt='Scott Stevens')
-                  .col-xs-12.col-sm-9
-                    span.name Scott Stevens
-                    br
-                  .clearfix
         .col-md-9
           .panel.panel-primary
             #accordion.panel-heading
               span.glyphicon.glyphicon-comment
               |  Chat
-            #collapseOne.panel-collapse.collapse.collapse.in
-              .panel-body
-                .left.clearfix
-                  .chat-body.clearfix
-                    .header-chat
-                      img.img-circle(src='http://placehold.it/50/55c1e7/fff&text=u', alt='user avatar', style="padding-right: 5px;")
-                      strong.primary-font Scott Stevens
-                    p
-                      | lorem ipsum dolor sit amet, consectetur adipiscing elit. curabitur bibendum ornare
-                      | dolor, quis ullamcorper ligula sodales.
+            #chat-body.panel-collapse.collapse.collapse.in
+              #messages
               .panel-footer
                 input#btn-input.form-control.input-sm(type='text', placeholder='Type your message here...')
-
