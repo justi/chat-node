@@ -1,5 +1,11 @@
 ## Chat Node changelog
 
+### 0.5.0 / 01-26-2014
+
+#### Features
+  - Added Backbone
+  - Added requirejs
+
 ### 0.4.0 / 01-24-2014
 
 #### Features
