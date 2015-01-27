@@ -17,7 +17,6 @@ module.exports = function(passport, FacebookStrategy, config) {
         profile_picture: profile.photos[0].value
       },
       function(err, user){
-        debugger
         return done(null, user);
       });
     });
