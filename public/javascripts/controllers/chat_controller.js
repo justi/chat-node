@@ -20,26 +20,18 @@ define(['backbone',
 
     sendMessage: function(){
       $message = $('#input-message');
-      this.io.emit('chat message', $message.val());
+      data = {
+        name: $message.attr('data-name'),
+        profile: $message.attr('data-profile'),
+        message: $message.val()
+      };
+      this.io.emit('chat message', data);
       $message.val('');
       return false;
     },
 
-    chatMessage: function(msg){
-      $message = $('#input-message');
-      $.ajax({
-        url: 'api/users/' + $message.attr('user'),
-        success: function(user){
-          new MessagesView({
-            el: "#messages",
-            message:{
-              profile_picture: user.profile_picture,
-              name: user.name,
-              message: msg
-            }
-          });
-        }
-      });
+    chatMessage: function(data){
+      new MessagesView({el: '#messages', data: data});
     },
 
     userLogged: function(user){

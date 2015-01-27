@@ -5,6 +5,7 @@ require.config({
     jquery: '/javascripts/jquery',
     'bootstrap': '/javascripts/bootstrap.min',
     slider: '/javascripts/jquery-slider',
+    io: '/socket.io/socket.io'
   },
   shim: {
     'Backbone': {

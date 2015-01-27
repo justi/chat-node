@@ -12,6 +12,10 @@ block content
               span.glyphicon.glyphicon-comment
               |  Chat
             #chat-body.panel-collapse.collapse.collapse.in
-              #messages
-              .panel-footer
-                input#btn-input.form-control.input-sm(type='text', placeholder='Type your message here...')
+              .panel-body
+                #messages
+              #chat.panel-footer
+                form#form-chat
+                  input#input-message.form-control.input-sm(type='text',
+                  placeholder='Type your message here...',
+                  data-name="#{user.name}", data-profile="#{user.profile_picture}")

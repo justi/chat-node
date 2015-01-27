@@ -3,13 +3,11 @@ define([
   'underscore',
   'backbone',
   'views/users',
-  'views/messages'
-], function($, _, Backbone, UserView, MessagesView){
+  'views/messages',
+  'controllers/chat_controller'
+], function($, _, Backbone, UserView, MessagesView, ChatController){
   var initialize = function(){
-
-    new UserView({el: "#contact-list"});
-    new MessagesView({el: "#messages"});
-
+    new ChatController();
   };
 
   return {

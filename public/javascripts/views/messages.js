@@ -3,14 +3,18 @@ define(['backbone', 'text!templates/message.html' ],function(Backbone, messageTe
   var MessagesView = Backbone.View.extend({
     template:  _.template(messageTemplate),
 
-    initialize: function(){
+    initialize: function(options){
+      this.data = options.data;
       this.render();
     },
 
     render: function(){
-      var users = { user: 'Ivan velasquez', message: 'Hey body, how are you'};
+      this.scrollDown();
+      this.$el.parent().scrollTop(this.$el.parent()[0].scrollHeight);
+    },
 
-      this.$el.html(this.template(users));
+    scrollDown: function(){
+      this.$el.append(this.template(this.data));
     }
   });
 

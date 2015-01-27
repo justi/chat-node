@@ -10,11 +10,14 @@ config            = require('config'),
 session           = require('express-session'),
 RedisStore        = require('connect-redis')(session),
 mongoose          = require('mongoose'),
-app               = express();
+debug             = require('debug')('node_chat'),
+app               = express(),
+http              = require('http').Server(app),
+io                = require('socket.io')(http);
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
-app.use(logger('dev'));
+//app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -36,6 +39,7 @@ require('./config/middleware')(app);
 require('./config/passport')(passport, FacebookStrategy, config);
 require('./config/routes')(app, passport);
 require('./config/database')(mongoose, config);
+require('./controllers/socket_controller')(io);
 
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
@@ -59,6 +63,13 @@ app.use(function(err, req, res, next) {
         message: err.message,
         error: {}
     });
+});
+
+
+app.set('port', process.env.PORT || 3000);
+
+http.listen(app.get('port'), function() {
+  console.log('server running');
 });
 
 

@@ -5,7 +5,7 @@ module.exports = {
   },
 
   chat: function(req, res){
-    return res.render('home/chat');
+    return res.render('home/chat', {user: req.user} );
   }
 
 };
