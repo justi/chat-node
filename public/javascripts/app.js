@@ -5,7 +5,7 @@ define([
   'models/user',
   'views/users',
   'views/messages'
-], function($, _, Backbone, User, UserCollectionView, MessagesView){
+], function($, _, Backbone, UserCollection, UserCollectionView, MessagesView){
   var initialize = function(){
 
     var users = new UserCollection();
