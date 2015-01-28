@@ -2,14 +2,20 @@ define([
   'jquery',
   'underscore',
   'backbone',
+  'models/user',
   'views/users',
   'views/messages'
-], function($, _, Backbone, UserView, MessagesView){
+], function($, _, Backbone, User, UserCollectionView, MessagesView){
   var initialize = function(){
 
-    new UserView({el: "#contact-list"});
-    new MessagesView({el: "#messages"});
+    var users = new UserCollection();
+    users.fetch({
+      success: function(child, users){ 
+        var view = new UserCollectionView({ el: "#contact-list", collection: users });
+      }
+    });
 
+    new MessagesView({el: "#messages"});
   };
 
   return {
