@@ -14,7 +14,8 @@ module.exports = function(passport, FacebookStrategy, config) {
       User.findOrCreate({
         name: profile.displayName,
         facebook_id: profile.id,
-        profile_picture: profile.photos[0].value
+        profile_picture: profile.photos[0].value,
+        online: true
       },
       function(err, user){
         return done(null, user);
