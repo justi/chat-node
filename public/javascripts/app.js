@@ -4,8 +4,7 @@ define([
   'backbone',
   'models/user',
   'views/users',
-  'views/messages'
-], function($, _, Backbone, UserCollection, UserCollectionView, MessagesView){
+], function($, _, Backbone, UserCollection, UserCollectionView){
   var initialize = function(){
 
     var users = new UserCollection();
@@ -14,8 +13,6 @@ define([
         var view = new UserCollectionView({ el: "#contact-list", collection: users });
       }
     });
-
-    new MessagesView({el: "#messages"});
   };
 
   return {
