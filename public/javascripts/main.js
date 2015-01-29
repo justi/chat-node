@@ -14,6 +14,10 @@ require.config({
   }
 });
 
-require(['app'], function (app) {
+require(['app', 'socket'], function (app, socket) {
   app.initialize();
+
+  $(function(){
+    socket.initialize();
+  });
 });

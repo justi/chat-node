@@ -2,7 +2,7 @@ var User = require('../models/user');
 
 module.exports = {
   index: function(req, res){
-    return res.render('home/chat');
+    return res.render('home/chat', { id: req.user.facebook_id });
   },
 
   users: function(req, res){
