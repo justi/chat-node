@@ -16,6 +16,11 @@ module.exports = mongoose.model('User', new mongoose.Schema({
   profile_picture: {
     type: String,
     require: true
+  },
+
+  online: {
+    type: Boolean,
+    require: true
   }
 
 })

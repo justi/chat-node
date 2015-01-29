@@ -61,5 +61,17 @@ app.use(function(err, req, res, next) {
     });
 });
 
+// bin/www configuration
+var debug = require('debug')('node_chat');
+
+app.set('port', process.env.PORT || 3000);
+
+var server = app.listen(app.get('port'), function() {
+  debug('Express server listening on port ' + server.address().port);
+});
+
+var io = require('socket.io').listen(server);
+require('./lib/sockets')(io);
+
 
 module.exports = app;
