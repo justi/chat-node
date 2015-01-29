@@ -1,5 +1,13 @@
 ## Chat Node changelog
 
+### 0.6.0 / 01-29-2014
+
+#### Features
+  - Added Socket-io client
+  - Added Socket-io server
+  - Modified Backbone views to work with express endpoints
+  - Intialize socket at user login
+
 ### 0.5.0 / 01-26-2014
 
 #### Features
