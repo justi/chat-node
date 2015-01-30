@@ -1,9 +1,10 @@
 define([
   'jquery',
   'socket-io',
+  'views/users',
   'views/messages',
   'views/connection'
-], function($, io, MessagesView, ConnectionView){
+], function($, io, UserCollectionView, MessagesView, ConnectionView){
   var initialize = function(){
     var id = $('.message').data('id');
     var socket = io();
@@ -20,7 +21,15 @@ define([
 
     // Socket events
     socket.on('user-joined', function(user){
+      if(!$('#' + id).parent('div').length){
+        new UserCollectionView({ el: "#contact-list", collection: [user] });
+      }
       new ConnectionView({el: "#messages", collection: user});
+    });
+
+    socket.on('user-disconnected', function(guest){
+      $('#' + guest._id).parent('div').remove();
+      new ConnectionView({el: "#messages", collection: guest});
     });
   };
 

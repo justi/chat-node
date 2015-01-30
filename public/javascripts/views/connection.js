@@ -13,6 +13,7 @@ define(['backbone', 'text!templates/connection.html' ],function(Backbone, connec
 
       var fb_id = parseInt(user["facebook_id"]);
       user["name"] = fb_id === id ? "You" : user["name"];
+      user["message"] = user["online"] ? 'joined the conversation' : 'left the conversation';
       this.$el.append(this.template(user));
     }
   });
