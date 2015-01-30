@@ -8,11 +8,12 @@ define(['backbone', 'text!templates/connection.html' ],function(Backbone, connec
     },
 
     render: function(){
-      var id = $('.message').data('id');
+      var id = parseInt($('.message').data('id'));
       var user = this.collection;
 
-      user["name"] = user["facebook_id"] === id ? "You" : user["name"];
-      this.$el.html(this.template(user));
+      var fb_id = parseInt(user["facebook_id"]);
+      user["name"] = fb_id === id ? "You" : user["name"];
+      this.$el.append(this.template(user));
     }
   });
 
