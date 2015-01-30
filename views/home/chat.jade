@@ -3,17 +3,18 @@ extends ../layout
 block content
 
   .container
-      .row
-        .col-md-3
-          ul#contact-list.list-group
-        .col-md-9
-          .panel.panel-primary
-            #accordion.panel-heading
-              span.glyphicon.glyphicon-comment
-              |  Chat
-            #chat-body.panel-collapse.collapse.collapse.in
-              #messages
-              .panel-footer
-                input#btn-input.message.form-control.input-sm(type='text', placeholder='Type your message here...', data-id= '#{id}')
+    a#logout( href="/logout" ) Log out
+    .row
+      .col-md-3
+        ul#contact-list.list-group
+      .col-md-9
+        .panel.panel-primary
+          #accordion.panel-heading
+            span.glyphicon.glyphicon-comment
+            |  Chat
+          #chat-body.panel-collapse.collapse.collapse.in
+            #messages
+            .panel-footer
+              input#btn-input.message.form-control.input-sm(type='text', placeholder='Type your message here...', data-id= '#{id}')
 
   script(data-main="/javascripts/main" , src='/bower_components/requirejs-plugins/lib/require.js')

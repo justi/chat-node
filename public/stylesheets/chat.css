@@ -2,6 +2,11 @@
   margin-right: 5px;
 }
 
+.container #logout {
+  position: absolute;
+  right: 10px;
+}
+
 #messages {
   height: 400px;
   overflow: auto;
