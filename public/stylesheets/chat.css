@@ -4,10 +4,7 @@
 
 #messages {
   height: 400px;
-}
-
-.panel-body{
-  overflow-y: scroll;
+  overflow: auto;
 }
 
 ::-webkit-scrollbar-track{
