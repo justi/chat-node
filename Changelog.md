@@ -3,6 +3,13 @@
 ### 0.6.0 / 01-29-2014
 
 #### Features
+  - Added socket listeners on disconnect
+  - Update user online status on middleware
+  - Modified Backbone views to work with new connect and disconnect events
+
+### 0.6.0 / 01-29-2014
+
+#### Features
   - Added Socket-io client
   - Added Socket-io server
   - Modified Backbone views to work with express endpoints
