@@ -7,7 +7,6 @@ define(['backbone','socket-io','views/messages'],function(Backbone, io, Messages
     initialize: function(){
       this.io = io();
       this.io.on('chat message', this.chatMessage);
-      this.io.on('user logged', this.userLogged);
     },
 
     events: {
@@ -27,7 +26,7 @@ define(['backbone','socket-io','views/messages'],function(Backbone, io, Messages
 
     chatMessage: function(data){
       new MessagesView({el: '#messages', data: data});
-      $('#messages').scrollTop($('#messages')[0].scrollHeight)
+      $('#messages').scrollTop($('#messages')[0].scrollHeight);
     }
 
   });

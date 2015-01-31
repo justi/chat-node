@@ -3,14 +3,13 @@ define(['backbone', 'text!templates/message.html' ],function(Backbone, messageTe
   var MessagesView = Backbone.View.extend({
     template:  _.template(messageTemplate),
 
-    initialize: function(){
+    initialize: function(options){
+      this.data = options.data;
       this.render();
     },
 
     render: function(){
-      var users = { user: 'Ivan velasquez', message: 'Hey body, how are you'};
-
-      this.$el.html(this.template(users));
+      this.$el.append(this.template(this.data));
     }
   });
 
