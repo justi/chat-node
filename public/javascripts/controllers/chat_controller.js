@@ -14,18 +14,20 @@ define(['backbone','socket-io','views/messages'],function(Backbone, io, Messages
     },
 
     sendMessage: function(){
-      $message = $('#input-message');
-      data = {
-        id: $message.attr('data-id'),
-        message: $message.val()
-      };
-      this.io.emit('chat message', data);
+      var $message = $('#input-message');
+      this.io.emit('chat message', $message.val());
+
       $message.val('');
       return false;
     },
 
     chatMessage: function(data){
+      var id = String($('#input-message').data('id'));
+      var fb_id = String(data.user["facebook_id"]);
+
+      data.user["name"] = fb_id === id ? "You" : data.user["name"];
       new MessagesView({el: '#messages', data: data});
+
       $('#messages').scrollTop($('#messages')[0].scrollHeight);
     }
 
