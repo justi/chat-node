@@ -1,5 +1,10 @@
 ## Chat Node changelog
 
+### 0.7.0 / 01-31-2014
+
+#### Features
+  - Added chat messages system
+
 ### 0.6.0 / 01-29-2014
 
 #### Features
