@@ -21,7 +21,7 @@ define([
 
     // Socket events
     socket.on('user-joined', function(user){
-      if(!$('#' + id).parent('div').length){
+      if(!$('#' + user._id).parent('div').length){
         new UserCollectionView({ el: "#contact-list", collection: [user] });
       }
       new ConnectionView({el: "#messages", collection: user});
