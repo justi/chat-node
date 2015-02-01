@@ -1,5 +1,10 @@
 ## Chat Node changelog
 
+### 0.7.2 / 01-31-2014
+
+#### Hotfix
+  - Validate empty messages
+
 ### 0.7.1 / 01-31-2014
 
 #### Hotfix
