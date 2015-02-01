@@ -15,11 +15,8 @@ define(['backbone','socket-io','views/messages'],function(Backbone, io, Messages
 
     sendMessage: function(){
       $message = $('#input-message');
-      data = {
-        id: $message.attr('data-id'),
-        message: $message.val()
-      };
-      this.io.emit('chat message', data);
+      this.io.emit('chat message', $message.val());
+
       $message.val('');
       return false;
     },
