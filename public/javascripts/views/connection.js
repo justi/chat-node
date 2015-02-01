@@ -8,10 +8,10 @@ define(['backbone', 'text!templates/connection.html' ],function(Backbone, connec
     },
 
     render: function(){
-      var id = parseInt($('.message').data('id'));
+      var id = String($('.message').data('id'));
       var user = this.collection;
 
-      var fb_id = parseInt(user["facebook_id"]);
+      var fb_id = String(user["facebook_id"]);
       user["name"] = fb_id === id ? "You" : user["name"];
       user["message"] = user["online"] ? 'joined the conversation' : 'left the conversation';
       this.$el.append(this.template(user));

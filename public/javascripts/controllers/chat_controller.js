@@ -14,7 +14,7 @@ define(['backbone','socket-io','views/messages'],function(Backbone, io, Messages
     },
 
     sendMessage: function(){
-      $message = $('#input-message');
+      var $message = $('#input-message');
       this.io.emit('chat message', $message.val());
 
       $message.val('');
@@ -22,8 +22,8 @@ define(['backbone','socket-io','views/messages'],function(Backbone, io, Messages
     },
 
     chatMessage: function(data){
-      var id = parseInt($message.data('id'));
-      var fb_id = parseInt(data.user["facebook_id"]);
+      var id = String($('#input-message').data('id'));
+      var fb_id = String(data.user["facebook_id"]);
 
       data.user["name"] = fb_id === id ? "You" : data.user["name"];
       new MessagesView({el: '#messages', data: data});
