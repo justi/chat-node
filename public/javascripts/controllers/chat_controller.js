@@ -22,7 +22,12 @@ define(['backbone','socket-io','views/messages'],function(Backbone, io, Messages
     },
 
     chatMessage: function(data){
+      var id = parseInt($message.data('id'));
+      var fb_id = parseInt(data.user["facebook_id"]);
+
+      data.user["name"] = fb_id === id ? "You" : data.user["name"];
       new MessagesView({el: '#messages', data: data});
+
       $('#messages').scrollTop($('#messages')[0].scrollHeight);
     }
 
