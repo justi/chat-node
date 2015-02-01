@@ -1,5 +1,10 @@
 ## Chat Node changelog
 
+### 0.7.1 / 01-31-2014
+
+#### Hotfix
+  - Validate if user is listed
+
 ### 0.7.0 / 01-31-2014
 
 #### Features
