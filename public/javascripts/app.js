@@ -4,7 +4,8 @@ define([
   'backbone',
   'models/user',
   'views/users',
-], function($, _, Backbone, UserCollection, UserCollectionView){
+  'controllers/chat_controller'
+], function($, _, Backbone, UserCollection, UserCollectionView, ChatController){
   var initialize = function(){
 
     var users = new UserCollection();
@@ -13,6 +14,7 @@ define([
         var view = new UserCollectionView({ el: "#contact-list", collection: users });
       }
     });
+    new ChatController();
   };
 
   return {
